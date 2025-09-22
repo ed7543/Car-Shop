@@ -10,7 +10,6 @@ import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Dealership {
 
@@ -27,5 +26,15 @@ public class Dealership {
     private String phone;
 
     @OneToMany(mappedBy = "dealership", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Car> cars = new ArrayList<>();
+    private List<Car> cars;
+
+    public Dealership() {}
+
+    public Dealership(String name, String email, String address, String phone) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        cars = new ArrayList<>();
+    }
 }

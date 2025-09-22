@@ -1,16 +1,16 @@
 package com.github.ed7543.carsystem.web.filters;
 
 
+import com.github.ed7543.carsystem.constants.JwtConstants;
+import com.github.ed7543.carsystem.helpers.JwtHelper;
+import com.github.ed7543.carsystem.service.domain.UserService;
+import com.github.ed7543.carsystem.model.domain.User;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
-import mk.ukim.finki.fooddeliverybackend.constants.JwtConstants;
-import mk.ukim.finki.fooddeliverybackend.helpers.JwtHelper;
-import mk.ukim.finki.fooddeliverybackend.model.domain.User;
-import mk.ukim.finki.fooddeliverybackend.service.domain.UserService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

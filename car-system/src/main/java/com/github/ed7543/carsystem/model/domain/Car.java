@@ -10,7 +10,6 @@ import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Car {
 
@@ -33,10 +32,25 @@ public class Car {
     private String description;
 
     @OneToMany(mappedBy = "car", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<CarImage> images = new ArrayList<>();
+    private List<CarImage> images;
 
     @ManyToOne
     @JoinColumn(name = "dealership_id")
     private Dealership dealership;
+
+    public Car() {}
+
+    public Car(String make, String model, Integer year, Double price, Double mileage, String description) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.mileage = mileage;
+        this.description = description;
+        images = new ArrayList<>();
+    }
+
+    public void increasePrice() { price++; }
+    public void decreasePrice() { price--; }
 
 }
